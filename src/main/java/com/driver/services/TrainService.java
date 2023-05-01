@@ -22,6 +22,8 @@ public class TrainService {
     @Autowired
     TrainRepository trainRepository;
 
+    List<Train>trains=new ArrayList<>();
+
     public Integer addTrain(AddTrainEntryDto trainEntryDto){
 
         //Add the train to the trainRepository
@@ -47,7 +49,7 @@ public class TrainService {
         train.setDepartureTime(trainEntryDto.getDepartureTime());
 
         trainRepository.save(train);
-
+        trains.add(train);
         return train.getTrainId();
     }
 
